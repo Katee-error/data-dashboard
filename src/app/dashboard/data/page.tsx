@@ -4,8 +4,8 @@ interface Props {
   className?: string;
 }
 
-export const Data: React.FC<Props> = ({ className }) => {
+export default async function Data() {
   return (
-    <div className={className}></div>
+    <div>Data</div>
   );
 };

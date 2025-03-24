@@ -4,8 +4,8 @@ interface Props {
   className?: string;
 }
 
-export const Analytics: React.FC<Props> = ({ className }) => {
+export default async function Analytics() {
   return (
-    <div className={className}></div>
+    <div>Analytics</div>
   );
 };

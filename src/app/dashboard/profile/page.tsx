@@ -4,8 +4,8 @@ interface Props {
   className?: string;
 }
 
-export const Profile: React.FC<Props> = ({ className }) => {
+export default async function Profile() {
   return (
-    <div className={className}></div>
+    <div >Profile</div>
   );
 };
