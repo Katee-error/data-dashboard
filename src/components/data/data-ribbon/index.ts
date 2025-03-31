@@ -1,0 +1,1 @@
+export {DataRibbon} from './data-ribbon'

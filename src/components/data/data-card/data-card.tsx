@@ -12,7 +12,7 @@ export type DataCardProps = {
   description: string;
 };
 
-const DataCard = (props: DataCardProps) => {
+export const DataCard = (props: DataCardProps) => {
   const { title, value, description } = props;
   return (
     <Paper className={scss.dataCard}>
@@ -36,5 +36,3 @@ const DataCard = (props: DataCardProps) => {
     </Paper>
   );
 };
-
-export default DataCard;

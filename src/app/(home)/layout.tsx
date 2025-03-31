@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+"use client";
 import { Footer, Header, Sidebar } from "@/components/layout";
-import { Suspense } from "react";
-import { Box } from "@mui/material";
-
-export const metadata: Metadata = {
-  title: "Data dashboard",
-};
+import { Suspense, useState } from "react";
 
 export default function HomeLayout({
   children,
@@ -13,34 +8,26 @@ export default function HomeLayout({
   children: React.ReactNode;
   modal: React.ReactNode;
 }>) {
-  const drawerWidth = 240;
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   return (
     <main className="min-h-screen flex">
-      {/* Sidebar */}
-      <Sidebar />
-      
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          flexGrow: 1,  
-          ml: `${drawerWidth}px`, 
-        }}
-      >
-        {/* Header */}
-        <Suspense>
-          <Header />
-        </Suspense>
-        <Box
-          sx={{
-            flexGrow: 1,
-            p: 3, 
+      <Suspense>
+        <Header open={isSidebarOpen} onToggle={toggleSidebar} />
+      </Suspense>
+      <div
+          style={{
+            display: 'flex',
+            marginTop: 64, 
+            minHeight: 'calc(100vh - 64px)',
           }}
         >
-          {children}
-        </Box>
+          <Sidebar open={isSidebarOpen} />
+          <div style={{ flexGrow: 1, padding: 20 }}>{children}</div>
+        </div>
+
         <Footer />
-      </Box>
     </main>
   );
 }

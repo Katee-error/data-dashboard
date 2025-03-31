@@ -1,28 +1,17 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid2';
+import React from "react";
+import { Box, Grid2 } from "@mui/material";
+import { DataRibbon, TransactionBottomRow, TransactionsPerDay } from "@/components/data";
 
-
-
-export default function Dashboard() {
+const Dashboard = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid size={8}>
-          <Paper>size=8</Paper>
-        </Grid>
-        <Grid size={4}>
-        <Paper>size=8</Paper>
-        </Grid>
-        <Grid size={4}>
-        <Paper>size=8</Paper>
-        </Grid>
-        <Grid size={8}>
-        <Paper>size=8</Paper>
-        </Grid>
-      </Grid>
+    <Box>
+      <Grid2 container gap={4} marginTop={2}>
+        <DataRibbon />
+        <TransactionsPerDay />
+      </Grid2>
+      <TransactionBottomRow />
     </Box>
   );
-}
+};
+export default Dashboard;
 

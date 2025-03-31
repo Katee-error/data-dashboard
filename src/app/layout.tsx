@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { Providers } from "@/components/providers";
 
-
 const nunito = Nunito({
   subsets: ["cyrillic"],
   variable: "--font-nunito",
